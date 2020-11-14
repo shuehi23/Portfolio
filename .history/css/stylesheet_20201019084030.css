@@ -1,0 +1,952 @@
+/* ==================================
+Reset
+===================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, h1, h2, h3, p, img, i, ul, li, form, label, table, article, footer, header, nav {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1.5;
+}
+
+article, footer, header, nav {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  vertical-align: middle;
+}
+
+/* ==================================
+Base
+===================================== */
+
+/* ==================================
+今回使用するcolor
+default: #222;
+light: #fff;
+gray: #d3d3d3;
+gray-light: #e8e8e8;
+primary: #00478b;
+secondary: #fc9303;
+===================================== */
+
+/* ここからコード */
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #222;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+body.active {
+  overflow-y: hidden;
+  /* ハンバーガーメニューを開いた時に縦スクロールするのを防ぐ */
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+}
+
+a {
+  font-size: 16px;
+  color: #222;
+  text-decoration: none;
+}
+
+hr {
+  width: 50px;
+  margin: 25px auto 30px auto;
+  padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 3px solid #fc9303;
+  border-radius: 1px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#mainNav .nav-item a:hover {
+  color: #fc9303!important;
+}
+
+#mainNav {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+  align-items: center;
+  display: flex;
+}
+
+/* ==================================
+  レイアウト
+===================================== */
+
+.l-content-wrap-default {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  /* 左右にマージンを付けてコンテンツを中央揃えに */
+  box-sizing: content-box !important;
+  padding-right: 2.4% !important;
+  padding-left: 2.4% !important;
+}
+
+@media screen and (max-width: 1000px) {
+  /* 1000px以下 */
+  .l-content-wrap-default {
+    /* レスポンシブにしたら左右にpaddingを付ける設定 */
+    max-width: 100%;
+    padding-right: 3% !important;
+    padding-left: 3% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* 576px以上 */
+  .l-content-wrap-default {
+    /* レスポンシブにしたら左右にpaddingを付ける設定 */
+    max-width: 100%;
+    padding-right: 5% !important;
+    padding-left: 5% !important;
+    box-sizing: border-box !important;
+    /* paddingが幅に含まれる状態 */
+  }
+}
+
+/* ==================================
+ヘッダー
+===================================== */
+
+.l-navigation>.container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1140px;
+}
+
+@media (min-width: 992px) {
+  #mainNav {
+    box-shadow: none;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding: 1rem 1rem;
+  }
+  #mainNav.navbar-scrolled {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+  }
+  #mainNav .l-navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  .l-navigation>.container {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px;
+  }
+  .l-navigation_logo {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 700;
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+  }
+  #mainNav.navbar-scrolled .l-navigation_logo {
+    color: #212529;
+  }
+  .l-navigation_list {
+    display: flex;
+    align-items: center;
+  }
+  .l-navigation_link {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+  #mainNav.navbar-scrolled .l-navigation_link {
+    color: #212529;
+  }
+  #mainNav .l-navigation .l-navigation_item .l-navigation_link {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .l-navigation {
+    padding: 10px 10px;
+    position: fixed;
+    width: 100%;
+    height: 6vh;
+    background-color: #222;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    /* 重なりの順番 */
+    transition: all 0.3s ease-in-out;
+  }
+  .l-navigation_logo {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Lato", sans-serif;
+  }
+  .l-navigation_list {
+    display: none;
+  }
+}
+
+@media screen and (max-width:412px) {
+  .l-navigation {
+    position: fixed;
+    width: 100%;
+    height: 8vh;
+    background-color: #222;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    /* 重なりの順番 */
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .l-navigation_list {
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    display: none;
+    position: absolute;
+    flex-basis: 100%;
+    flex-direction: column;
+    padding-left: 10px;
+    background-color: white;
+  }
+  .l-navigation_list.active {
+    transform: rotateX(10deg);
+    transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    z-index: 2;
+    display: inline-block;
+    top: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .l-navigation_item {
+    padding: .5rem 1rem;
+  }
+}
+
+.active .l-navigation {
+  /* bodyにactiveが付与されている時 */
+  opacity: 1;
+  visibility: visible;
+}
+
+.c-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #222;
+  border-radius: 20px;
+  background-color: #fff;
+  position: fixed;
+  top: 20px;
+  right: 5%;
+  z-index: 10;
+}
+
+.c-button:hover {
+  cursor: pointer;
+}
+
+/* ハンバーガーメニュー */
+
+.menu-trigger, .menu-trigger span {
+  display: inline-block;
+  transition: all 0.4s;
+  box-sizing: border-box;
+}
+
+.menu-trigger {
+  display: none;
+  cursor: pointer;
+  z-index: 3;
+  transition: all .4s;
+  position: relative;
+  width: 24px;
+  height: 26px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-trigger {
+    display: flex;
+  }
+}
+
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: #333;
+  border-radius: 1px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+  /* 1番目の要素 */
+  top: 5px;
+}
+
+.menu-trigger span:nth-of-type(2) {
+  /* 2番目の要素 */
+  top: 13px;
+}
+
+.menu-trigger span:nth-of-type(3) {
+  /* 3番目の要素 */
+  bottom: 3px;
+}
+
+.active .menu-trigger span:nth-of-type(1) {
+  /* activeが付与されたときに棒線を45度傾ける */
+  transform: translateY(8px) rotate(-45deg);
+}
+
+.active .menu-trigger span:nth-of-type(2) {
+  /* 真ん中の棒線は透明にする */
+  opacity: 0;
+}
+
+.active .menu-trigger span:nth-of-type(3) {
+  transform: translateY(-8px) rotate(45deg);
+}
+
+/* ==================================
+ヘッダー
+===================================== */
+
+#INDEX .l-header {
+  background-image: linear-gradient(to bottom, rgba(92, 77, 66, 0.6) 0%, rgba(92, 77, 66, 0.6) 100%), url(../image/sample02.jpg);
+  background-position: bottom;
+}
+
+.l-header {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.l-header_title {
+  text-align: center;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+}
+
+.l-header_text {
+  text-align: center;
+  color: #e8e8e8;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+}
+
+/* ==================================
+プロフィール
+=====================================*/
+
+.p-profile {
+  padding: 100px 0;
+}
+
+@media screen and (max-width: 576px) {
+  .p-profile {
+    padding: 75px 0;
+  }
+}
+
+.p-profile_container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.p-profile_title {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+.p-profile_image {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 30px auto;
+  display: block;
+  border-radius: 75px;
+}
+
+.p-profile_name {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.p-profile_text:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* ==================================
+ポートフォリオ
+===================================== */
+
+.p-portfolio {
+  padding: 100px 0;
+  background: #e8e8e8;
+}
+
+@media screen and (max-width:576px) {
+  .p-portfolio {
+    padding: 75px 0;
+  }
+}
+
+.p-portfolio_title {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+.p-portfolio_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p-portfolio_link {
+  width: 30%;
+  display: block;
+  background: #fff;
+  border-radius: 0 0 5px 5px;
+  position: relative;
+  display: block;
+  margin-right: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .p-portfolio_link {
+    width: 48%;
+    /* タブレットサイズの横幅 */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .p-portfolio_link {
+    width: 100%;
+    /* スマホサイズの横幅 */
+  }
+}
+
+.p-portfolio_link+.p-portfolio_link {
+  margin-left: 5%;
+}
+
+@media screen and (max-width: 1000px) {
+  .p-portfolio_link+.p-portfolio_link {
+    margin-left: 4%;
+    /* タブレットサイズ */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .p-portfolio_link+.p-portfolio_link {
+    margin-left: 0;
+    /* スマホサイズ */
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .p-portfolio_link:nth-child(n + 4) {
+    /* PC 4番目以降のマージンを設定 */
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .p-portfolio_link:nth-child(3n + 1) {
+    /* 2段目以降の一番左の要素のマージンを無くす */
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .p-portfolio_link:nth-child(2n + 1) {
+    /* タブレットサイズ 2段目以降の一番左の要素のマージンを無くす */
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .p-portfolio_link:nth-child(1n +1) {
+    margin-top: 5%;
+  }
+}
+
+.p-portfolio_link:hover .p-portfolio_image {
+  transform: scale(1.1);
+}
+
+.p-portfolio_image-wrap {
+  overflow: hidden;
+}
+
+.p-portfolio_image {
+  transition: all 0.3s;
+}
+
+.p-portfolio_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: rgba(252, 147, 3, 0.9);
+  transition: opacity 0.25s ease;
+  text-align: center;
+}
+
+@media screen and(max-width:768px) {
+  .p-portfolio_box {
+    display: none;
+  }
+}
+
+.p-portfolio_box:hover {
+  opacity: 1;
+}
+
+.project-category {
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.project-name {
+  font-size: 1.2rem;
+  margin-bottom: 1rem!important;
+}
+
+.project-comment {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.project-skill {
+  font-size: 1rem;
+  width: 300px;
+}
+
+/* ==================================
+スキル
+===================================== */
+
+.p-skill {
+  padding: 100px 0;
+}
+
+@media screen and (max-width: 576px) {
+  .p-skill {
+    padding: 75px 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .p-skill_container {
+    max-width: 1140px;
+  }
+}
+
+.p-skill_title {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+.p-skill_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p-skill_item {
+  width: 22%;
+}
+
+@media screen and (max-width: 1000px) {
+  .p-skill_item {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .p-skill_item {
+    width: 100%;
+  }
+}
+
+.p-skill_item+.p-skill_item {
+  /* 隣り合う要素があった場合 */
+  margin-left: 4%;
+}
+
+@media screen and (min-width:1000px) {
+   .p-skill_item:nth-child(n + 5) {
+       margin-top: 4%;
+   }
+}
+
+@media screen and (max-width: 576px) {
+  .p-skill_item+.p-skill_item {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .p-skill_item:nth-child(5) {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .p-skill_item:nth-child(2n + 1) {
+    /* 2段目の1番左の要素 */
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .p-skill_item:nth-child(n + 3) {
+    /* 3番目の要素 */
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .p-skill_item:nth-child(n + 2) {
+    /* 2番目の要素 */
+    margin-top: 50px;
+  }
+}
+
+.p-skill_icon {
+  margin-bottom: 30px;
+  text-align: center;
+  display: block;
+  color: #f3923d;
+}
+
+@media screen and (max-width: 576px) {
+  .p-skill i {
+    margin-bottom: 10px;
+  }
+}
+
+.p-skill_subtitle {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.p-skill_text {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+/* ==================================
+ コンタクト
+===================================== */
+
+.p-contact {
+  padding: 100px 0;
+  background-color: #e8e8e8;
+}
+
+@media screen and (max-width: 576px) {
+  .p-contact {
+    padding: 75px 0;
+  }
+}
+
+.p-contact_container {
+  text-align: center;
+}
+
+.p-contact_title {
+  font-family: "Lato", sans-serif;
+}
+
+.p-contact_icon {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.p-contact a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #f3923d;
+}
+
+.p-contact a::after {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #333;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.p-contact a:hover::after {
+  bottom: -4px;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==================================
+フッター
+===================================== */
+
+.l-footer {
+  height: 200px;
+  background-color: #222;
+  text-align: center;
+  position: relative;
+  color: #e8e8e8;
+}
+
+.l-footer_container {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.l-footer_title {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.l-footer_copyright {
+  color: #fff;
+  font-size: 12px;
+  font-family: "Lato", sans-serif;
+}
+
+.l-footer_button {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: -18px;
+  right: 5%;
+  background-color: #e8e8e8;
+  border: 1px solid #222;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  /* 45度傾ける */
+  cursor: pointer;
+}
+
+.l-footer_go-to-top {
+  color: #222;
+  transform: rotate(-45deg);
+  /* 中身を逆に-45度傾けてまっすぐにする */
+}
+
+/*--------------------------------
+ ポートフォリオ詳細ページ
+---------------------------------*/
+
+#DETAIL .l-header {
+  background-image: linear-gradient(to bottom, rgba(92, 77, 66, 0.6) 0%, rgba(92, 77, 66, 0.6) 100%), url(../image/detail.jpg);
+}
+
+.p-detail {
+  padding: 100px 0;
+}
+
+@media screen and (max-width:576px) {
+  .p-detail {
+    padding: 75px 0;
+  }
+}
+
+.p-detail:nth-child(even) {
+  /* evenは偶数番目 */
+  background-color: #e8e8e8;
+}
+
+.p-detail_container {
+  max-width: 700px;
+}
+
+.p-detail_title {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+.p-detail_subtitle {
+  margin-bottom: 40px;
+  font-size: 1.25rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.p-detail_image {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.p-detail_link-wrap {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.p-detail_link {
+  font-size: 18px;
+  color: #fc9303;
+}
+
+.p-detail_icon {
+  margin-left: 5px;
+  font-size: 0.8em;
+}
+
+.p-detail_text {
+  margin-bottom: 30px;
+}
+
+.c-btn--link {
+  width: 120px;
+  display: inline-block;
+  background: #f3923d;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-left: 30px;
+  color: #fff;
+  box-shadow: 2px 2px 4px 1px rgba(25, 25, 25, 0.2);
+}
+
+.c-btn--link:hover {
+  box-shadow: 2px 3px 8px 2px rgba(150, 150, 150, 0.8);
+  transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+  transition: all .3s;
+  -webkit-transition: all .3s;
+}
+
+@media screen and (max-width:375px) {
+  .p-detail_text {
+    overflow-wrap: break-word;
+  }
+}
+
+.p-detail_text_small {
+  /* 最後の要素以外という意味 */
+  font-size: 90%;
+  margin-bottom: 30px;
+}
